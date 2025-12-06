@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Class Notes Portal</title>
+
+  <!-- prevent Google indexing -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    /* NAVBAR */
+    .nav {
+      background: #2c6bed;
+      padding: 12px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 14px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .nav a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* PAGE */
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      font-size: 14px;
+      color: #555;
+      margin-top: 40px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="todaynotes.html">Notes</a>
+    <a href="notice.html">Notices</a>
+    <a href="projects.html">Projects</a>
+    <a href="previousnotes.html">Previous</a>
+    <a href="about.html">About</a>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <h1>Class Notes – Internal Portal</h1>
+    <p>This site is for our class to check notes, notices, and projects if something was missed in school.</p>
+
+    <div class="card">
+      <h2>Today’s Notes</h2>
+      <p>Notes dictated in class today.</p>
+      <a href="today.html">Go to Notes</a>
+    </div>
+
+    <div class="card">
+      <h2>Notices</h2>
+      <p>Tests, submissions, and important announcements.</p>
+      <a href="notices.html">View Notices</a>
+    </div>
+
+    <div class="card">
+      <h2>Previous Notes</h2>
+      <p>Notes from earlier days, organized by date.</p>
+      <a href="previous.html">Open Archive</a>
+    </div>
+
+    <footer>
+      <p>
+        Reference only. Notes are shared as dictated in class.<br>
+        This website is maintained by students for internal use.
+      </p>
+    </footer>
+  </div>
+
+</body>
+</html>
