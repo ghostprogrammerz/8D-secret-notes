@@ -51,27 +51,25 @@
       const path = folder + i + "." + ext;
 
       if (ext === "pdf") {
-        const link = document.createElement("a");
-        link.href = path;
-        link.textContent = "Open PDF " + i;
-        link.target = "_blank";
-        link.style.display = "none"; // hide first
-        link.style.margin = "10px auto";
-        link.style.textAlign = "center";
-
-        // check if pdf exists
         fetch(path, { method: "HEAD" })
-          .then(r => { if (r.ok) link.style.display = "block"; })
+          .then(r => {
+            if (!r.ok) return;
+            const link = document.createElement("a");
+            link.href = path;
+            link.textContent = "Open PDF " + i;
+            link.target = "_blank";
+            link.style.display = "block";
+            link.style.margin = "10px auto";
+            link.style.textAlign = "center";
+            container.appendChild(link);
+          })
           .catch(() => {});
-
-        container.appendChild(link);
-
       } else {
-        const img = document.createElement("img");
+        const img = new Image();
         img.src = path;
         img.className = "note";
-        img.onerror = () => img.remove();
-        container.appendChild(img);
+        img.onload = () => container.appendChild(img);
+        // do NOTHING on error
       }
     });
   }
