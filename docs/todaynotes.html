@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Today's Notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
 
   <style>
     body {
@@ -12,19 +13,49 @@
       margin: 0;
       padding: 16px;
     }
+
     h1 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
-    .note {
-      display: block;
-      width: 100%;
+
+    .pdf-card {
       max-width: 720px;
-      margin: 0 auto 14px; /* centers image and adds spacing below */
+      margin: 0 auto 18px;
+      background: white;
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      background: #fff;
+      padding: 12px;
     }
+
+    .pdf-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    embed {
+      width: 100%;
+      height: 480px;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .download {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      padding: 10px;
+      background: #2c6bed;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .download:active {
+      opacity: 0.9;
+    }
+
     .footer {
       text-align: center;
       font-size: 12px;
@@ -36,26 +67,77 @@
 <body>
 
 <h1>Today's Notes</h1>
+<p style="text-align:center">PDF notes as dictated in class</p>
+  <p style="text-align:center">will be updated only after 3:30 pm - 4 pm</p>
 
-<p style="text-align:center">Images may be uploaded after class</p>
+<div class="pdf-card">
+  <div class="pdf-title">Maths – 6 Dec</div>
+  <embed src="today/maths.pdf" type="application/pdf">
+  <a class="download" href="today/maths.pdf" download>Download PDF</a>
+</div>
 
-<img class="note" src="today/1.jpeg">
-<img class="note" src="today/2.jpeg">
-<img class="note" src="today/3.jpeg">
-<img class="note" src="today/4.jpeg">
-<img class="note" src="today/5.jpeg">
+<div class="pdf-card">
+  <div class="pdf-title">biology – 6 Dec</div>
+  <embed src="today/biology.pdf" type="application/pdf">
+  <a class="download" href="today/biology.pdf" download>Download PDF</a>
+</div>
 
-  <script>
-  const imgs = document.querySelectorAll('.note');
-  imgs.forEach(img => {
-    img.onerror = () => img.remove(); // removes image if it fails to load
-  });
-</script>
+  <div class="pdf-card">
+  <div class="pdf-title">chemistry – 6 Dec</div>
+  <embed src="today/chemistry.pdf" type="application/pdf">
+  <a class="download" href="today/chemistry.pdf" download>Download PDF</a>
+</div>
 
+<div class="pdf-card">
+  <div class="pdf-title">physics – 6 Dec</div>
+  <embed src="today/physics.pdf" type="application/pdf">
+  <a class="download" href="today/physics.pdf" download>Download PDF</a>
+</div>
+
+  <div class="pdf-card">
+  <div class="pdf-title">history – 6 Dec</div>
+  <embed src="today/history.pdf" type="application/pdf">
+  <a class="download" href="today/history.pdf" download>Download PDF</a>
+</div>
+
+<div class="pdf-card">
+  <div class="pdf-title">geography – 6 Dec</div>
+  <embed src="today/geography.pdf" type="application/pdf">
+  <a class="download" href="today/geography.pdf" download>Download PDF</a>
+</div>
+
+  <div class="pdf-card">
+  <div class="pdf-title">computer – 6 Dec</div>
+  <embed src="today/computer.pdf" type="application/pdf">
+  <a class="download" href="today/computer.pdf" download>Download PDF</a>
+</div>
+
+<div class="pdf-card">
+  <div class="pdf-title">hindi – 6 Dec</div>
+  <embed src="today/hindi.pdf" type="application/pdf">
+  <a class="download" href="today/hindi.pdf" download>Download PDF</a>
+</div>
+
+<div class="pdf-card">
+  <div class="pdf-title">kannada – 6 Dec</div>
+  <!-- <embed src="today/kannana.pdf" type="application/pdf">
+  <a class="download" href="today/kannada.pdf" download>Download PDF</a>
+</div> -->
+  <div class="pdf-card">
+  <div class="pdf-title">Today</div>
+  <p style="
+    text-align:center;
+    color:#666;
+    padding:40px 0;
+    font-weight:600;
+    ">
+    No notes were given today.
+  </p>
+</div>
+  
 <div class="footer">
-  Class Notes • Private Use Only
+  Class Notes • Internal Reference Only
 </div>
 
 </body>
 </html>
-
