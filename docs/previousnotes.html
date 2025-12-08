@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <title>Previous Notes</title>
   <meta name="robots" content="noindex, nofollow">
+<style>
+ body {
+  font-family: system-ui, Arial, sans-serif;
+  background: #f2f4f7;
+  margin: 0;
+  padding: 16px;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fa;
-    }
+/* NAVBAR */
 .nav {
   background: #2c6bed;
   padding: 10px;
@@ -23,7 +25,7 @@
 .nav a {
   color: white;
   text-decoration: none;
-  padding: 10px 14px;
+  padding: 12px 16px;
   border-radius: 6px;
   font-weight: 600;
   font-size: 15px;
@@ -33,38 +35,57 @@
   background: rgba(255,255,255,0.2);
 }
 
-    .container {
-      padding: 20px;
-    }
+/* LAYOUT */
+.container {
+  padding: 10px;
+}
 
-    details {
-      background: white;
-      border-radius: 6px;
-      margin-bottom: 14px;
-      padding: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    }
+/* SUBJECT BLOCK */
+details {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
 
-    summary {
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* SUBJECT HEADER */
+details > summary {
+  list-style: none;
+  cursor: pointer;
 
-    .week-btn {
-      display: block;
-      margin-top: 8px;
-      padding: 10px;
-      background: #2c6bed;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      text-align: center;
-    }
+  font-size: 18px;
+  font-weight: 700;
+  padding: 16px;
 
-    .week-btn:hover {
-      background: #1f4fc1;
-    }
+  border-radius: 8px;
+}
+
+details[open] > summary {
+  border-bottom: 1px solid #eee;
+  border-radius: 8px 8px 0 0;
+}
+
+/* WEEK BUTTONS */
+.week-btn {
+  display: block;
+  width: calc(100% - 32px);
+  max-width: 720px;
+
+  margin: 12px auto;
+  padding: 16px;
+  min-height: 48px;
+
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+
+  background: #2c6bed;
+  color: white;
+  text-decoration: none;
+
+  border-radius: 8px;
+}
+
   </style>
 </head>
 
@@ -73,8 +94,8 @@
  <!-- NAVBAR -->
 <div class="nav">
   <a href="index.html">Home</a>
-  <a href="todaynotes.html">Today</a>
-  <a href="previousnotes.html">Previous</a>
+  <a href="todaynotes.html">Todays Notes</a>
+  <a href="previousnotes.html">Previous Notes (3rd term)</a>
   <a href="notices.html">Notices</a>
   <a href="projects.html">Projects</a>
   <a href="about.html">About</a>
