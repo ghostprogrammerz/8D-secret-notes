@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Previous Notes</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    .nav {
+      background: #2c6bed;
+      padding: 12px;
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 14px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    details {
+      background: white;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      padding: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    summary {
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .week-btn {
+      display: block;
+      margin-top: 10px;
+      padding: 10px;
+      background: #2c6bed;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .week-btn:hover {
+      background: #1f4fc1;
+    }
+
+    .no-notes {
+      margin-top: 10px;
+      color: #777;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="nav">
+    <a href="index.html">Home</a>
+    <a href="todaynotes.html">Notes</a>
+    <a href="previousnotes.html">Previous</a>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <h1>Previous Notes</h1>
+    <p>Select subject → week to view or download notes.</p>
+
+    <!-- MATHS -->
+    <details>
+      <summary>Maths</summary>
+      <a class="week-btn" href="previous/maths/week-01.pdf" target="_blank">
+        Week 1
+      </a>
+      <a class="week-btn" href="previous/maths/week-02.pdf" target="_blank">
+        Week 2
+      </a>
+    </details>
+
+    <!-- SCIENCE -->
+    <details>
+      <summary>Science</summary>
+      <a class="week-btn" href="previous/science/week-01.pdf" target="_blank">
+        Week 1
+      </a>
+      <div class="no-notes">No notes available yet</div>
+    </details>
+
+    <!-- ENGLISH -->
+    <details>
+      <summary>English</summary>
+      <a class="week-btn" href="previous/english/week-01.pdf" target="_blank">
+        Week 1
+      </a>
+    </details>
+
+  </div>
+
+</body>
+</html>
