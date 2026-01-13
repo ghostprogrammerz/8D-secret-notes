@@ -1,236 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Today's Notes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow">
+<meta charset="UTF-8">
+<title>School Notes :: Archive</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      font-family: system-ui, Arial, sans-serif;
-      background: #f2f4f7;
-      margin: 0;
-      padding: 16px;
-    }
+<style>
+  body {
+    background: #fdf6e3;
+    color: #000;
+    font-family: "Times New Roman", Times, serif;
+    margin: 0;
+    padding: 20px;
+  }
 
-.nav {
-  background: #2c6bed;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-}
+  h1 {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
 
-.nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 15px;
-}
+  .tagline {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 20px;
+  }
 
-.nav a:hover {
-  background: rgba(255,255,255,0.2);
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
 
-    
-    h1 {
-      text-align: center;
-      margin-bottom: 12px;
-    }
+  th {
+    text-align: left;
+    border-bottom: 2px solid #000;
+    padding-bottom: 6px;
+  }
 
-    .pdf-card {
-      max-width: 720px;
-      margin: 0 auto 18px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      padding: 14px;
-    }
+  td {
+    padding: 6px 0;
+    border-bottom: 1px dotted #999;
+  }
 
-    .pdf-title {
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
+  a {
+    color: #006600;
+    text-decoration: none;
+    font-weight: bold;
+  }
 
-    .download,
-    .preview {
-      display: block;
-      text-align: center;
-      padding: 10px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-    }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    .download {
-      background: #2c6bed;
-      color: white;
-      margin-bottom: 8px;
-    }
+  .footer {
+    margin-top: 30px;
+    font-size: 13px;
+    color: #555;
+  }
 
-    .preview {
-      border: 2px solid #2c6bed;
-      color: #2c6bed;
-    }
+  .hidden {
+    display: none;
+  }
 
-    .download:active,
-    .preview:active {
-      opacity: 0.9;
-    }
-
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      color: #666;
-      margin-top: 20px;
-    }
-  </style>
+  .lock {
+    font-size: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #900;
+  }
+</style>
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-<div class="nav">
-  <a href="index.html">Home</a>
-  <a href="todaynotes.html">Todays notes</a>
-  <a href="previousnotes.html">Previous notes</a>
-  <a href="notices.html">Notices</a>
-  <a href="projects.html">Projects</a>
-  <a href="about.html">About</a>
+<div id="content" class="hidden">
+
+  <h1>School Notes Archive</h1>
+  <div class="tagline">Sharing knowledge since this year</div>
+
+  <table>
+    <tr>
+      <th>Subject</th>
+      <th>Type</th>
+    </tr>
+    <tr>
+      <td><a href="#">English</a></td>
+      <td>Full year notes</td>
+    </tr>
+    <tr>
+      <td><a href="#">History</a></td>
+      <td>Full year notes</td>
+    </tr>
+    <tr>
+      <td><a href="#">Computer</a></td>
+      <td>Full year notes</td>
+    </tr>
+  </table>
+
+  <div class="lock" onclick="logout()">[ lock archive ]</div>
+
+  <div class="footer">
+    This site is not indexed. If you found it, you probably know the password.
+  </div>
+
 </div>
 
-<h1>Today's Notes</h1>
-<p style="text-align:center">PDF notes as dictated in class</p>
-<p style="text-align:center">Will be updated only after 3:30 pm – 4 pm</p>
-  <p style="text-align:center">6th december 2025</p>
+<script>
+  const PASSWORD = "JOYBOY";
 
-<!-- SUBJECTS -->
-  <div class="pdf-card">
-  <div class="pdf-title">Maths</div>
-  <a class="download" href="previous/math/todaymaths.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/math/todaymaths.pdf" target="_blank">Preview Notes</a>
-</div>
+  if (sessionStorage.getItem("authed") !== "yes") {
+    const input = prompt("Password:");
+    if (input === PASSWORD) {
+      sessionStorage.setItem("authed", "yes");
+    } else {
+      alert("Access denied.");
+      window.location.href = "index.html";
+    }
+  }
 
-  <!--  <div class="pdf-card">
-  <div class="pdf-title">maths</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
- uploading
-  </p>
-</div> -->
+  document.getElementById("content").classList.remove("hidden");
 
-<!-- <div class="pdf-card">
-  <div class="pdf-title">Biology</div>
-  <a class="download" href="previous/biology/todaybiology.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/biology/todaybiology.pdf" target="_blank">Preview Notes</a>
-</div> -->
-
-  <div class="pdf-card">
-  <div class="pdf-title">biology</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes given.
-  </p>
-</div>
-
-<!-- <div class="pdf-card">
-  <div class="pdf-title">Chemistry</div>
-  <a class="download" href="previous/chemistry/todaychemistry.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/chemistry/todaychemistry.pdf" target="_blank">Preview Notes</a>
-</div> -->
-     <div class="pdf-card">
-  <div class="pdf-title">chemistry</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes given.  
-  </p>
-</div> 
-
- <div class="pdf-card">
-  <div class="pdf-title">English</div>
-  <a class="download" href="previous/english/todayenglish.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/english/todayenglish.pdf" target="_blank">Preview Notes</a>
-</div> 
- <!--   <div class="pdf-card">
-  <div class="pdf-title">english</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    notes was given but we will take a while to upload.
-  </p>
-</div> -->
-
-<!-- <div class="pdf-card">
-  <div class="pdf-title">Physics</div>
-  <a class="download" href="previous/physics/todayphysics.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/physics/todayphysics.pdf" target="_blank">Preview Notes</a>
-</div> -->
-  
-  <div class="pdf-card">
-  <div class="pdf-title">physics</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes given.
-  </p>
-</div>
-  
-<!-- <div class="pdf-card">
-  <div class="pdf-title">History</div>
-  <a class="download" href="previous/history/todayhistory.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/history/todayhistory.pdf" target="_blank">Preview Notes</a>
-</div> -->
-  <div class="pdf-card">
-  <div class="pdf-title">history</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes given.
-  </p>
-</div>
-  
-<!-- <div class="pdf-card">
-  <div class="pdf-title">Geography</div>
-  <a class="download" href="previous/geography/todaygeography.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/geography/todaygeography.pdf" target="_blank">Preview Notes</a>
-</div> -->
-
-    <div class="pdf-card">
-  <div class="pdf-title">geographyy</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes given.
-  </p>
-</div>
-
-<!-- <div class="pdf-card">
-  <div class="pdf-title">Computer</div>
-  <a class="download" href="previous/computer/todaycomputer.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/computer/todaycomputer.pdf" target="_blank">Preview Notes</a>
-</div> -->
-
-    <div class="pdf-card">
-  <div class="pdf-title">computer</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes given.
-  </p>
-</div>
-
-   <div class="pdf-card">
-  <div class="pdf-title">hindi</div>
-  <a class="download" href="previous/hindi/todayhindi.pdf" download>Download PDF</a>
-  <a class="preview" href="previous/hindi/todayhindi.pdf" target="_blank">Preview Notes</a>
-</div> 
-  <!--  <div class="pdf-card">
-  <div class="pdf-title">hindi</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    uploading
-  </p>
-</div> -->
-
-<div class="pdf-card">
-  <div class="pdf-title">Kannada</div>
-  <p style="text-align:center;color:#666;font-weight:600;">
-    No notes avalible we need someone to send kannada notes
-  </p>
-</div>
-  
-<div class="footer">
-  Class Notes • Internal Reference Only
-</div>
+  function logout() {
+    sessionStorage.removeItem("authed");
+    location.reload();
+  }
+</script>
 
 </body>
 </html>
