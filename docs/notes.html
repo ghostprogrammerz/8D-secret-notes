@@ -39,18 +39,23 @@
   }
 
   td {
-    padding: 6px 0;
+    padding: 10px 0;
     border-bottom: 1px dotted #999;
   }
 
-  a {
-    color: #006600;
-    text-decoration: none;
+  button {
+    background: #006600;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 15px;
     font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
   }
 
-  a:hover {
-    text-decoration: underline;
+  button:hover {
+    background: #004d00;
   }
 
   .footer {
@@ -69,6 +74,14 @@
     cursor: pointer;
     color: #900;
   }
+
+  @media (max-width: 600px) {
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+    }
+  }
 </style>
 </head>
 
@@ -77,37 +90,46 @@
 <div id="content" class="hidden">
 
   <h1>School Notes Archive</h1>
-  <div class="tagline">Sharing knowledge since this year</div>
+  <div class="tagline">Full-year notes · one click per subject</div>
 
   <table>
     <tr>
       <th>Subject</th>
-      <th>Type</th>
+      <th>Action</th>
     </tr>
+
     <tr>
+      <td>English</td>
       <td>
-        <a href="notes/english.pdf" target="_blank">English</a>
+        <button onclick="openPDF('notes/english.pdf')">
+          Open Full Notes
+        </button>
       </td>
-      <td>Full year notes</td>
     </tr>
+
     <tr>
+      <td>History</td>
       <td>
-        <a href="notes/history.pdf" target="_blank">History</a>
+        <button onclick="openPDF('notes/history.pdf')">
+          Open Full Notes
+        </button>
       </td>
-      <td>Full year notes</td>
     </tr>
+
     <tr>
+      <td>Computer</td>
       <td>
-        <a href="notes/computer.pdf" target="_blank">Computer</a>
+        <button onclick="openPDF('notes/computer.pdf')">
+          Open Full Notes
+        </button>
       </td>
-      <td>Full year notes</td>
     </tr>
   </table>
 
   <div class="lock" onclick="logout()">[ lock archive ]</div>
 
   <div class="footer">
-    This site is not indexed. If you found it, you probably know the password.
+    Not indexed. Shared by trust, not tech.
   </div>
 
 </div>
@@ -129,10 +151,4 @@
 
   function logout() {
     sessionStorage.removeItem("authed");
-    location.reload();
-  }
-</script>
-
-</body>
-</html>
-
+    loca
