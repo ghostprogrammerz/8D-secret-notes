@@ -15,140 +15,60 @@
     padding: 20px;
   }
 
-  h1 {
-    font-size: 28px;
-    margin-bottom: 4px;
-  }
+  h1 { font-size: 28px; margin-bottom: 4px; }
+  .tagline { font-size: 14px; color: #444; margin-bottom: 20px; }
 
-  .tagline {
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 20px;
-  }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th { text-align: left; border-bottom: 2px solid #000; padding-bottom: 6px; }
+  td { padding: 6px 0; border-bottom: 1px dotted #999; }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 16px;
-  }
+  a { color: #006600; text-decoration: none; font-weight: bold; }
+  a:hover { text-decoration: underline; }
 
-  th {
-    text-align: left;
-    border-bottom: 2px solid #000;
-    padding-bottom: 6px;
-  }
-
-  td {
-    padding: 10px 0;
-    border-bottom: 1px dotted #999;
-  }
-
-  button {
-    background: #006600;
-    color: white;
-    border: none;
-    padding: 8px 14px;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-
-  button:hover {
-    background: #004d00;
-  }
-
-  .footer {
-    margin-top: 30px;
-    font-size: 13px;
-    color: #555;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  .lock {
-    font-size: 13px;
-    margin-top: 10px;
-    cursor: pointer;
-    color: #900;
-  }
-
-  @media (max-width: 600px) {
-    button {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-    }
-  }
+  .footer { margin-top: 30px; font-size: 13px; color: #555; }
+  .lock { font-size: 13px; margin-top: 10px; cursor: pointer; color: #900; }
 </style>
 </head>
 
 <body>
 
-<div id="content" class="hidden">
-
+<div id="content">
   <h1>School Notes Archive</h1>
-  <div class="tagline">Full-year notes · one click per subject</div>
+  <div class="tagline">Sharing knowledge since this year</div>
 
   <table>
-    <tr>
-      <th>Subject</th>
-      <th>Action</th>
-    </tr>
-
-    <tr>
-      <td>English</td>
-      <td>
-        <button onclick="openPDF('notes/english.pdf')">
-          Open Full Notes
-        </button>
-      </td>
-    </tr>
-
-    <tr>
-      <td>History</td>
-      <td>
-        <button onclick="openPDF('notes/history.pdf')">
-          Open Full Notes
-        </button>
-      </td>
-    </tr>
-
-    <tr>
-      <td>Computer</td>
-      <td>
-        <button onclick="openPDF('notes/computer.pdf')">
-          Open Full Notes
-        </button>
-      </td>
-    </tr>
+    <tr><th>Subject</th><th>Type</th></tr>
+    <tr><td><a href="notes/english.pdf" target="_blank">English</a></td><td>Full year notes</td></tr>
+    <tr><td><a href="notes/history.pdf" target="_blank">History</a></td><td>Full year notes</td></tr>
+    <tr><td><a href="notes/computer.pdf" target="_blank">Computer</a></td><td>Full year notes</td></tr>
   </table>
 
   <div class="lock" onclick="logout()">[ lock archive ]</div>
 
   <div class="footer">
-    Not indexed. Shared by trust, not tech.
+    Not indexed. If you're here, you know the password.
   </div>
-
 </div>
 
 <script>
   const PASSWORD = "JOYBOY";
 
+  function logout() {
+    sessionStorage.removeItem("authed");
+    location.reload();
+  }
+
   if (sessionStorage.getItem("authed") !== "yes") {
     const input = prompt("Password:");
+
     if (input === PASSWORD) {
       sessionStorage.setItem("authed", "yes");
     } else {
-      alert("Access denied.");
-      window.location.href = "index.html";
+      document.body.innerHTML = "<h2>Access denied.</h2>";
+      throw new Error("Unauthorized");
     }
   }
+</script>
 
-  document.getElementById("content").classList.remove("hidden");
-
-  function logout() {
-    sessionStorage.removeItem("authed");
-    loca
+</body>
+</html>
